@@ -99,7 +99,7 @@
         setInterval(arrowBounce, 800);
 
 
-        /* 06. SMOTH SCROLL
+        /* 06. SMOOTH SCROLL
         ==================================================*/
 
         $('a.smoth-scroll').on('click', function(e) {
