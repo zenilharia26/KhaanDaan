@@ -22,6 +22,7 @@
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:600|Lato:300,400" rel="stylesheet">
 
+	
 	{% block header %}
 	{% endblock header %}
 
@@ -57,7 +58,7 @@
 										<ul class="nav navbar-nav navbar-right">
 											<!-- navigation menu items -->
 											<li>
-												<a class="line active smoth-scroll" href="#home">Home</a>
+												<a class="line active smoth-scroll" href="{% url 'Homepage' %}">Home</a>
 											</li>
 											<li>
 												<a class="line smoth-scroll" href="#about">About</a>
@@ -72,11 +73,11 @@
 												<a class="line smoth-scroll" href="#food-estimator">Food Estimator</a>
 											</li>									
 											<li>
-												<a class="line smoth-scroll" href="#login">Login</a>
+												<a class="line smoth-scroll" href="{% url 'login' %}">Login</a>
 											</li>
 											<li>
-												<a class="line smoth-scroll" href="#login">SignUp</a>
-											</li>
+													<a class="line smoth-scroll" href="{% url 'Register-NGO' %}">SignUp</a>
+												</li>
 											<li>
 												<a class="line smoth-scroll" href="#contact">Contact</a>
 											</li>
