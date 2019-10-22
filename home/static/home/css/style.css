@@ -673,7 +673,7 @@ body {
 
 #profile {
     padding: 90px 0 80px;
-    background: #fff;
+    background-color: #777777;
 }
 
 #port-image .mix {
@@ -756,7 +756,7 @@ body {
 
 .port-desc:before {
     position: absolute;
-    background-color: #fff;
+    background-color: #777777;
     top: 10px;
     bottom: 10px;
     left: 10px;
@@ -809,7 +809,7 @@ body {
 }
 
 .port-desc a i {
-    background-color: #333333;
+    background-color: #777777;
     color: #131313;
     text-align: center;
     border-radius: 3px;
