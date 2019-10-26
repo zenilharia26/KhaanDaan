@@ -2,7 +2,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 
 {% block header %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -37,12 +37,22 @@
             <div class="card card-2">
                 <div class="card-heading"></div>
                 <div class="card-body">
+                    
                     <h2 class="title">Khaan-दान:Registration Page</h2>
+                    {% load crispy_forms_tags %}
                     <form method="POST" class="post-form">
                         {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn--radius btn--blue" type="submit" id="submit">Register</button>
+                        </div>
+<!--
                         <div class="input-group">
                             <input class="input--style-2" type="text" placeholder="{{ name }} Name" name="name">
                         </div>
+        
                         <div class="input-group">
                             {% if name == 'Restaurant' %}
                                 <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="rid">
@@ -50,6 +60,7 @@
                                 <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="nid">
                             {% endif %}
                         </div>
+            
                         <div class="input-group">
                             <input class="input--style-2" type="tel" placeholder="Mobile Number" name="mobile_no">
                         </div>
@@ -64,11 +75,12 @@
                             </div> 
                         <div class="input-group">
                                 <input class="input--style-2" type="password" placeholder="Confirm Password" name="confirm_password">
-                            </div>                               
-                        <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" type="submit" id="submit">Verify</button>
-                        </div>
+                            </div>  
+-->                             
                     </form>
+                    <div class="border-top pt-3">
+                        <small class="text-muted">Already have an account?<a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,4 +104,5 @@
 
    
 {% endblock content %}
+</html>
 <!-- end document-->

@@ -20,10 +20,11 @@ from home import views as home_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name="Admin"),
-    path('', home_views.home, name="Homepage"),
+    path('admin/', admin.site.urls, name="admin"),
+    path('', home_views.home, name="home"),
     path('register/restaurant', user_views.register_restaurant, name="Register-Restaurant"),
     path('register/ngo', user_views.register_ngo, name="Register-NGO"),
     path('login/',auth_views.LoginView.as_view(template_name='users/login.html'),name='login'),
+    path('logout/',auth_views.LogoutView.as_view(template_name='users/logout.html'),name='logout'),
     path('dashboard/',auth_views.LoginView.as_view(template_name='users/dashboard.html'),name='dashboard'),
 ]

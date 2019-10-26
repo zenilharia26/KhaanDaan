@@ -30,7 +30,13 @@
 
     <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
 {% endblock header %}
-
+{% if messages%}
+{% for message in messages%}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+{% endfor %}
+{% endif %}
 {% block content %}
     <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
         <div class="wrapper wrapper--w960">
@@ -48,7 +54,7 @@
                             <input class="input--style-1" type="text" placeholder="Enter Registered E-mail ID" name="email_id">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="password" placeholder="Enter Password" name="name">
+                            <input class="input--style-1" type="password" placeholder="Enter Password" name="password">
                         </div>                                
                         <div class="p-t-30">
                             <button class="btn btn--radius btn--green" type="submit" id="submit">Sign In</button>

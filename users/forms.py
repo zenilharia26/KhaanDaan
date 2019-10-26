@@ -1,16 +1,26 @@
 from django import forms
-from users.models import Restaurant, NGO
+#from users.models import Restaurant, NGO
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
-class RestaurantForm(forms.ModelForm):
+
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+    name = forms.CharField(required=True)
+    user_id = forms.CharField(required=True)
+    mobile = forms.CharField(required=True)
+    address = forms.CharField(required=True)
+
     class Meta:
-        model = Restaurant
-        password = forms.CharField(widget=forms.PasswordInput)
-        confirm_password = forms.CharField(widget=forms.PasswordInput)
-        fields = ['name', 'rid', 'mobile_no', 'email_id', 'address', 'password']
+        model = User
+        fields = ['name', 'user_id', 'mobile', 'email', 'address','username', 'password1','password2']
 
+
+'''
 class NGOForm(forms.ModelForm):
     class Meta:
         model = NGO
         password = forms.CharField(widget=forms.PasswordInput)
         confirm_password = forms.CharField(widget=forms.PasswordInput)
         fields = ['name', 'nid', 'mobile_no', 'email_id', 'address', 'password']
+'''

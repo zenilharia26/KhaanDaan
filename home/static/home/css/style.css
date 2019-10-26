@@ -665,13 +665,13 @@ body {
 }
 
 .color-heading {
-    color: #131313 !important;
+    color: #777777 !important;
 }
 
 /* 08. PORTFOLIO
 =================================================*/
 
-#profile {
+#hungerspot {
     padding: 90px 0 80px;
     background-color: #777777;
 }
