@@ -5,6 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="../../static/home/img/khaan-daan.png" type="image/x-icon">
 	<link rel="stylesheet" href="../../static/home/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- MAIN STYLE -->
@@ -63,13 +64,22 @@
 											</li>
 											<li>
 												<a class="line smoth-scroll" href="#food-estimator">Food Estimator</a>
-											</li>									
+											</li>	
+											{% if user.is_authenticated %}
+											<li>
+												<a class="line smoth-scroll" href="{% url 'dashboard' %}">Hey {{user.username}}</a>
+											</li>
+											<li>
+													<a class="line smoth-scroll" href="{% url 'logout' %}">Logout</a>
+												</li>
+											{% else %}							
 											<li>
 												<a class="line smoth-scroll" href="{% url 'login' %}">Login</a>
 											</li>
 											<li>
 												<a class="line smoth-scroll" href="{% url 'Register-NGO' %}">Register</a>
 											</li>
+											{% endif %}
 											<li>
 												<a class="line smoth-scroll" href="#contact">Contact</a>
 											</li>

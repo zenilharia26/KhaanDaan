@@ -34,9 +34,9 @@ def register_ngo(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            username=form.cleaned_data.get('name')
-            ngo.user = User.objects.get(User.objects.get(email=form.cleaned_data.get('email')))
+            username = form.cleaned_data.get('name')
             ngo = NGO()
+            ngo.user = User.objects.get(email=form.cleaned_data.get('email'))
             ngo.name = form.cleaned_data.get('name')
             ngo.nid = form.cleaned_data.get('user_id')
             ngo.mobile_no = form.cleaned_data.get('mobile')
