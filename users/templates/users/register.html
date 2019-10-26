@@ -44,7 +44,11 @@
                             <input class="input--style-2" type="text" placeholder="{{ name }} Name" name="name">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="nid">
+                            {% if name == 'Restaurant' %}
+                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="rid">
+                            {% else %}
+                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="nid">
+                            {% endif %}
                         </div>
                         <div class="input-group">
                             <input class="input--style-2" type="tel" placeholder="Mobile Number" name="mobile_no">
