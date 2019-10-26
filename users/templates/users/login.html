@@ -2,7 +2,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 
 {% block header %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,36 +30,57 @@
 
     <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
 {% endblock header %}
-{% if messages%}
-{% for message in messages%}
-    <div class="alert alert-{{ message.tags }}">
-        {{ message }}
-    </div>
-{% endfor %}
-{% endif %}
+
 {% block content %}
     <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
         <div class="wrapper wrapper--w960">
             <div class="card card-2">
-                <div class="card-heading">
-                </div>
+                <div class="card-heading"></div>
                 <div class="card-body">
-                       
-                    <h2 class="title">Khaan-दान: Login Page</h2>
-
+                    
+                    <h2 class="title">Khaan-दान:Login Page</h2>
+                    {% load crispy_forms_tags %}
                     <form method="POST" class="post-form">
                         {% csrf_token %}
-                        
+                        <fieldset class="form-group">
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn--radius btn--blue" type="submit" id="submit">Login</button>
+                        </div>
+<!--
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Enter Registered E-mail ID" name="email_id">
+                            <input class="input--style-2" type="text" placeholder="{{ name }} Name" name="name">
+                        </div>
+        
+                        <div class="input-group">
+                            {% if name == 'Restaurant' %}
+                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="rid">
+                            {% else %}
+                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="nid">
+                            {% endif %}
+                        </div>
+            
+                        <div class="input-group">
+                            <input class="input--style-2" type="tel" placeholder="Mobile Number" name="mobile_no">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="password" placeholder="Enter Password" name="password">
-                        </div>                                
-                        <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" type="submit" id="submit">Sign In</button>
+                            <input class="input--style-2" type="text" placeholder="E-mail Address" name="email_id">
                         </div>
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Address" name="address">
+                        </div>         
+                        <div class="input-group">
+                                <input class="input--style-2" type="password" placeholder="Enter Password" name="password">
+                            </div> 
+                        <div class="input-group">
+                                <input class="input--style-2" type="password" placeholder="Confirm Password" name="confirm_password">
+                            </div>  
+-->                             
                     </form>
+                    <div class="border-top pt-3">
+                        <small class="text-muted">Don't have an account?<a class="ml-2" href="{% url 'Register-NGO' %}">Sign Up</a></small>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,4 +104,5 @@
 
    
 {% endblock content %}
+</html>
 <!-- end document-->

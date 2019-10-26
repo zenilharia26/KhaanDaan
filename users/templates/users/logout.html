@@ -38,48 +38,10 @@
                 <div class="card-heading"></div>
                 <div class="card-body">
                     
-                    <h2 class="title">Khaan-दान:Registration Page</h2>
-                    {% load crispy_forms_tags %}
-                    <form method="POST" class="post-form">
-                        {% csrf_token %}
-                        <fieldset class="form-group">
-                            {{ form|crispy }}
-                        </fieldset>
-                        <div class="form-group">
-                            <button class="btn btn-outline-info" type="submit" id="submit">Register</button>
-                        </div>
-<!--
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="{{ name }} Name" name="name">
-                        </div>
-        
-                        <div class="input-group">
-                            {% if name == 'Restaurant' %}
-                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="rid">
-                            {% else %}
-                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="nid">
-                            {% endif %}
-                        </div>
-            
-                        <div class="input-group">
-                            <input class="input--style-2" type="tel" placeholder="Mobile Number" name="mobile_no">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="E-mail Address" name="email_id">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Address" name="address">
-                        </div>         
-                        <div class="input-group">
-                                <input class="input--style-2" type="password" placeholder="Enter Password" name="password">
-                            </div> 
-                        <div class="input-group">
-                                <input class="input--style-2" type="password" placeholder="Confirm Password" name="confirm_password">
-                            </div>  
--->                             
-                    </form>
+                    <h2 class="title">You have been logged out from Khaan-दान. Please visit again!</h2>
+
                     <div class="border-top pt-3">
-                        <small class="text-muted">Already have an account?<a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
+                        <small class="text-muted">Don't have an account?<a class="ml-2" href="{% url 'Register-NGO' %}">Sign Up</a></small>
                     </div>
                 </div>
             </div>

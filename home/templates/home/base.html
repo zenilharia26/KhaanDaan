@@ -128,6 +128,13 @@
 	<!-- MAIN JS -->
 	<script src="../../static/home/js/main.js"></script>
 	{% block content %}
+	{% if messages%}
+		{% for message in messages%}
+			<div class="alert alert-{{ message.tags }}">
+				{{ message }}
+			</div>
+		{% endfor %}
+		{% endif %}
 	{% endblock %}
 
 	<footer id="footer">
