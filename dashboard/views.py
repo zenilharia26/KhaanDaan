@@ -15,8 +15,8 @@ def typography(request):
 def icons(request):
     return render(request, 'dashboard/icons.html')
 
-def maps(request):
-    return render(request, 'dashboard/maps.html')
+def map(request):
+    return render(request, 'dashboard/map.html')
 
 def notifications(request):
-    return render(request, 'dashboard/icons.html')
+    return render(request, 'dashboard/notifications.html')
