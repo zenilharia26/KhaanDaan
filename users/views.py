@@ -19,6 +19,7 @@ def register_restaurant(request):
             restaurant.mobile_no = form.cleaned_data.get('mobile')
             restaurant.email_id = form.cleaned_data.get('email')
             restaurant.address = form.cleaned_data.get('address')
+            restaurant.user_type = 'R'
             restaurant.save()
             messages.success(request,f'Account created successfully for {username}!')
             return redirect('login')
@@ -42,6 +43,7 @@ def register_ngo(request):
             ngo.mobile_no = form.cleaned_data.get('mobile')
             ngo.email_id = form.cleaned_data.get('email')
             ngo.address = form.cleaned_data.get('address')
+            ngo.user_type = 'N'
             ngo.save()
             messages.success(request,f'Account created successfully for {username}!')
             return redirect('login')
