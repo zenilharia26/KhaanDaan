@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from users.models import Restaurant,NGO
+#from users.models import Restaurant,NGO
 from django.contrib.auth.decorators import login_required
 
 @login_required
