@@ -15,7 +15,7 @@
   <!-- CSS Files -->
   <link href="../../static/dashboard//css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../../static/dashboard//demo/demo.css" rel="stylesheet" />
+  
 </head>
 
 <body class="dark-edition">
@@ -26,7 +26,7 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <div class="logo"><a href="{% url 'dashboard' %}" class="simple-text logo-normal">
         Khaan-दान
         </a></div>
       <div class="sidebar-wrapper">
@@ -45,34 +45,36 @@
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'dashboard-table-list' %}">
-              <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+              <i class="material-icons">search</i>
+              <p>Search</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'dashboard-typography' %}">
-              <i class="material-icons">library_books</i>
-              <p>Typography</p>
+              <i class="material-icons">account_balance_wallet</i>
+              <p>Transactions</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="{% url 'dashboard-icons' %}">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
-            </a>
-          </li>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'dashboard-notifications' %}">
+            <i class="material-icons">notifications</i>
+            <p>Notifications</p>
+          </a>
+        </li>
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'dashboard-map' %}">
-              <i class="material-icons">location_ons</i>
+              <i class="material-icons">map</i>
               <p>Maps</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{% url 'dashboard-notifications' %}">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
+              <a class="nav-link" href="{% url 'logout' %}">
+                <i class="material-icons">logout</i>
+                <p>Logout</p>
+              </a>
+            </li>
+         
           <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
                     <i class="material-icons">unarchive</i>
@@ -87,7 +89,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+            <a class="navbar-brand" href="javascript:void(0)">Welcome, {{ user.username }}!</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -107,7 +109,7 @@
             </form>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
+                <a class="nav-link" href="{% url 'dashboard' %}">
                   <i class="material-icons">dashboard</i>
                   <p class="d-lg-none d-md-block">
                     Stats
@@ -123,15 +125,15 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="javascript:void(0)">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="javascript:void(0)">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="javascript:void(0)">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Another One</a>
+                  <a class="dropdown-item" href="javascript:void(0)">Electricity bill payment is due</a>
+                  <a class="dropdown-item" href="javascript:void(0)">Fire Safety Audit on November 4, 2019</a>
+                  <a class="dropdown-item" href="javascript:void(0)">Food delivered to Shishu Seva NGO successfully</a>
+                  <a class="dropdown-item" href="javascript:void(0)">Renew agreement with Swiggy</a>
+                  <a class="dropdown-item" href="javascript:void(0)">Malai Kofta delivered to Simran Residency</a>
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
+                <a class="nav-link" href="{% url 'logout' %}">
                   <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
@@ -152,9 +154,9 @@
                   <div class="ct-chart" id="dailySalesChart"></div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Daily Sales</h4>
+                  <h4 class="card-title">Daily Food Waste</h4>
                   <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today's food waste.</p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -169,12 +171,12 @@
                   <div class="ct-chart" id="websiteViewsChart"></div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Email Subscriptions</h4>
-                  <p class="card-category">Last Campaign Performance</p>
+                  <h4 class="card-title">Yearly food waste</h4>
+                  <p class="card-category">High wastage detected</p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    <i class="material-icons">access_time</i> updated 2 days ago
                   </div>
                 </div>
               </div>
@@ -185,12 +187,12 @@
                   <div class="ct-chart" id="completedTasksChart"></div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Completed Tasks</h4>
-                  <p class="card-category">Last Campaign Performance</p>
+                  <h4 class="card-title">Customer count by time</h4>
+                  <p class="card-category">High rate around 3 PM</p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    <i class="material-icons">access_time</i> updated 9 hours ago
                   </div>
                 </div>
               </div>
@@ -201,17 +203,17 @@
               <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">content_copy</i>
+                    <i class="material-icons">assessment</i>
                   </div>
-                  <p class="card-category">Used Space</p>
-                  <h3 class="card-title">49/50
-                    <small>GB</small>
+                  <p class="card-category">NGOs served</p>
+                  <h3 class="card-title">40
+  
                   </h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
                     <i class="material-icons text-warning">warning</i>
-                    <a href="#pablo" class="warning-link">Get More Space...</a>
+                    <a href="#pablo" class="warning-link">Falling short on target...</a>
                   </div>
                 </div>
               </div>
@@ -220,10 +222,10 @@
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">store</i>
+                    <i class="material-icons">restaurant</i>
                   </div>
                   <p class="card-category">Revenue</p>
-                  <h3 class="card-title">$34,245</h3>
+                  <h3 class="card-title">₹34,245</h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -238,12 +240,12 @@
                   <div class="card-icon">
                     <i class="material-icons">info_outline</i>
                   </div>
-                  <p class="card-category">Fixed Issues</p>
-                  <h3 class="card-title">75</h3>
+                  <p class="card-category">Fire Safety Audit Score</p>
+                  <h3 class="card-title">60/100</h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">local_offer</i> Tracked from Github
+                    <i class="material-icons">warning</i> Need to improve score
                   </div>
                 </div>
               </div>
@@ -254,8 +256,9 @@
                   <div class="card-icon">
                     <i class="fa fa-twitter"></i>
                   </div>
-                  <p class="card-category">Followers</p>
-                  <h3 class="card-title">+245</h3>
+                  <p class="card-category">#{{user.username}}</p>
+                  <h3 class="card-title">245</h3>
+                  <p class="card-category">are talking about it!</p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -270,41 +273,47 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Employees Stats</h4>
-                  <p class="card-category">New employees on 15th September, 2016</p>
+                  <p class="card-category">Record till 27th October, 2019</p>
                 </div>
                 <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead class="text-warning">
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Salary</th>
-                      <th>Country</th>
+                      <th><center>ID</center></th>
+                      <th><center>Name</center></th>
+                      <th><center>Salary</center></th>
+                      <th><center>Remark</center></th>
                     </thead>
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>Dakota Rice</td>
-                        <td>$36,738</td>
-                        <td>Niger</td>
+                        <td>Zenil Haria</td>
+                        <td>₹8,000</td>
+                        <td>Delivered Chicken Biryani to Regency Gardens</td>
                       </tr>
                       <tr>
                         <td>2</td>
-                        <td>Minerva Hooper</td>
-                        <td>$23,789</td>
-                        <td>Curaçao</td>
+                        <td>Arghyadeep Das</td>
+                        <td>₹8,000</td>
+                        <td>Delivered Shanghai Noodles to Galeria Plaza</td>
                       </tr>
                       <tr>
                         <td>3</td>
-                        <td>Sage Rodriguez</td>
-                        <td>$56,142</td>
-                        <td>Netherlands</td>
+                        <td>Aditya Kaushik</td>
+                        <td>₹6,000</td>
+                        <td>Joined work on October 25th, 2019</td>
                       </tr>
                       <tr>
                         <td>4</td>
-                        <td>Philip Chaney</td>
-                        <td>$38,735</td>
-                        <td>Korea, South</td>
+                        <td>Mihir Gada</td>
+                        <td>₹7,000</td>
+                        <td>Delivered Dal Kofta to Kesar Harmony</td>
                       </tr>
+                      <tr>
+                          <td>5</td>
+                          <td>Darshan Chheda</td>
+                          <td>₹9,000</td>
+                          <td>Managed wedding party of Mr. Singhania</td>
+                        </tr>
                     </tbody>
                   </table>
                 </div>
@@ -319,7 +328,7 @@
                       <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
                           <a class="nav-link active" href="#profile" data-toggle="tab">
-                            <i class="material-icons">bug_report</i> Bugs
+                            <i class="material-icons">person_pin</i> NGOs
                             <div class="ripple-container"></div>
                           </a>
                         </li>
@@ -355,7 +364,7 @@
                                 </label>
                               </div>
                             </td>
-                            <td>Sign contract for "What are conference organizers afraid of?"</td>
+                            <td>Contact U&I NGO to send excess food.</td>
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -376,7 +385,7 @@
                                 </label>
                               </div>
                             </td>
-                            <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                            <td>Contact Suresh Truck Services to send food to Sishu Seva Sanstha.</td>
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -397,7 +406,7 @@
                                 </label>
                               </div>
                             </td>
-                            <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                            <td>Collect utensils from U&I NGO School.
                             </td>
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
@@ -419,7 +428,7 @@
                                 </label>
                               </div>
                             </td>
-                            <td>Create 4 Invisible User Experiences you Never Knew About</td>
+                            <td>Collect order of food by Gurucharan NGO for Diwali party.</td>
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -446,7 +455,7 @@
                                 </label>
                               </div>
                             </td>
-                            <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                            <td>Vulnerabilities detected on your website. Some dependencies are outdated.
                             </td>
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
@@ -468,7 +477,7 @@
                                 </label>
                               </div>
                             </td>
-                            <td>Sign contract for "What are conference organizers afraid of?"</td>
+                            <td>Critical security and privacy update for your website!</td>
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
                                 <i class="material-icons">edit</i>

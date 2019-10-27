@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from users.models import Restaurant,NGO
 
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')

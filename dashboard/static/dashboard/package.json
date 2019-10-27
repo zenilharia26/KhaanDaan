@@ -1,7 +1,7 @@
 {
   "name": "material-dashboard-dark",
   "version": "2.1.0",
-  "description": "Material Dasboard Dark Edition, a Google Material Desgin. Coded by Creative Tim",
+  "description": "Material Dasboard Dark Edition, a Google Material Design. Coded by Khaan-दान",
   "main": "index.html",
   "directories": {
     "example": "root"
@@ -31,7 +31,7 @@
     "frontend",
     "responsive bootstrap dashboard"
   ],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "author": "Khaan-दान <contact@khaandaan.in> (https://khaandaan.in)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/creativetimofficial/material-dashboard/issues"

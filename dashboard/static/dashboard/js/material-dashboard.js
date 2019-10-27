@@ -198,7 +198,7 @@ md = {
           bottom: 0,
           left: 0
         },
-      }
+      };
 
       var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
 
@@ -208,9 +208,9 @@ md = {
       /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
 
       dataCompletedTasksChart = {
-        labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
+        labels: ['10a', '1p', '4p', '7p', '8p', '9p', '10p', '12a'],
         series: [
-          [230, 750, 450, 300, 280, 240, 200, 190]
+          [23, 35, 45, 50, 60, 87, 55, 19]
         ]
       };
 
@@ -219,14 +219,14 @@ md = {
           tension: 0
         }),
         low: 0,
-        high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        high: 1000, // we recommend you to set the high sa the biggest value + something for a better look
         chartPadding: {
           top: 0,
           right: 0,
           bottom: 0,
           left: 0
         }
-      }
+      };
 
       var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
 
@@ -280,7 +280,7 @@ md = {
 
     $.notify({
       icon: "add_alert",
-      message: "Welcome to <b>Material Dashboard</b> - a beautiful freebie for every web developer."
+      message: "Welcome to <b>Khaan-दान</b> -a portal to connect hotels and restaurants with NGOs."
 
     }, {
       type: type[color],
