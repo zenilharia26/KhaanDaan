@@ -89,7 +89,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">Welcome, {{ user.username }}!</a>
+            <a class="navbar-brand" href="javascript:void(0)">Welcome, {{ user.name }}!</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -154,9 +154,21 @@
                   <div class="ct-chart" id="dailySalesChart"></div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Daily Food Waste</h4>
+                  <h4 class="card-title">
+                    {% if user.user_type == 'R' %}
+                      Daily Food Waste
+                    {% else %}
+                      Daily Children Served
+                    {% endif %}
+                  </h4>
                   <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today's food waste.</p>
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today's 
+                    {% if user.user_type == 'R' %}
+                      food waste.
+                    {% else %}
+                      hunger.
+                    {% endif %}
+                  </p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -171,8 +183,21 @@
                   <div class="ct-chart" id="websiteViewsChart"></div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Yearly food waste</h4>
-                  <p class="card-category">High wastage detected</p>
+                  <h4 class="card-title">
+                    {% if user.user_type == 'R' %}
+                      Yearly food waste.
+                    {% else %}
+                      Yearly children served.
+                    {% endif %}
+                  </h4>
+                  <p class="card-category">
+                      {% if user.user_type == 'R' %}
+                        High wastage detected.
+                      {% else %}
+                        People dying due to hunger.
+                      {% endif %}
+                    
+                  </p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -187,7 +212,14 @@
                   <div class="ct-chart" id="completedTasksChart"></div>
                 </div>
                 <div class="card-body">
-                  <h4 class="card-title">Customer count by time</h4>
+                  <h4 class="card-title">
+                      {% if user.user_type == 'R' %}
+                        Customer count by time.
+                      {% else %}
+                        People served by time.
+                      {% endif %}
+                    
+                  </h4>
                   <p class="card-category">High rate around 3 PM</p>
                 </div>
                 <div class="card-footer">
@@ -256,7 +288,7 @@
                   <div class="card-icon">
                     <i class="fa fa-twitter"></i>
                   </div>
-                  <p class="card-category">#{{user.username}}</p>
+                  <p class="card-category">#{{user.name}}</p>
                   <h3 class="card-title">245</h3>
                   <p class="card-category">are talking about it!</p>
                 </div>

@@ -1,31 +1,39 @@
 from django.shortcuts import render
-#from users.models import Restaurant,NGO
+from users.models import KhaanDaanUsers
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard/dashboard.html')
+    user = KhaanDaanUsers.objects.get(user=request.user)
+    return render(request, 'dashboard/dashboard.html', {'user':user})
 
 @login_required
 def profile(request):
-    return render(request, 'dashboard/user.html')
+    user = KhaanDaanUsers.objects.get(user=request.user)
+    return render(request, 'dashboard/user.html', {'user':user})
 
 @login_required
 def table_list(request):
-    return render(request, 'dashboard/tables.html')
+    user = KhaanDaanUsers.objects.get(user=request.user)
+    return render(request, 'dashboard/tables.html', {'user':user})
 
 @login_required
 def typography(request):
-    return render(request, 'dashboard/typography.html')
+    user = KhaanDaanUsers.objects.get(user=request.user)
+    return render(request, 'dashboard/typography.html', {'user':user})
 
 @login_required
 def icons(request):
-    return render(request, 'dashboard/icons.html')
+    user = KhaanDaanUsers.objects.get(user=request.user)
+    return render(request, 'dashboard/icons.html', {'user':user})
 
 @login_required
 def map(request):
-    return render(request, 'dashboard/map.html')
+    user = KhaanDaanUsers.objects.get(user=request.user)
+    return render(request, 'dashboard/map.html', {'user':user})
 
 @login_required
 def notifications(request):
-    return render(request, 'dashboard/notifications.html')
+    user = KhaanDaanUsers.objects.get(user=request.user)
+    return render(request, 'dashboard/notifications.html', {'user':user})

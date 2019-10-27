@@ -67,7 +67,7 @@
 											</li>	
 											{% if user.is_authenticated %}
 											<li>
-												<a class="line smoth-scroll" href="{% url 'dashboard' %}">Hey {{user.username}}</a>
+												<a class="line smoth-scroll" href="{% url 'dashboard' %}">Hey {{user.name}}</a>
 											</li>
 											<li>
 													<a class="line smoth-scroll" href="{% url 'logout' %}">Logout</a>
