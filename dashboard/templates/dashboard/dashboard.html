@@ -62,18 +62,26 @@
             <p>Notifications</p>
           </a>
         </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'dashboard-map' %}">
+            <i class="material-icons">map</i>
+            <p>Maps</p>
+          </a>
+        </li>
+        {% if user.user_type == 'R' %}
           <li class="nav-item ">
-            <a class="nav-link" href="{% url 'dashboard-map' %}">
-              <i class="material-icons">map</i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-              <a class="nav-link" href="{% url 'logout' %}">
-                <i class="material-icons">logout</i>
-                <p>Logout</p>
+              <a class="nav-link" href="{% url 'dashboard-add-food' %}">
+                <i class="material-icons">local_dining</i>
+                <p>AddFood</p>
               </a>
-            </li>
+          </li>
+        {% endif %}
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'logout' %}">
+              <i class="material-icons">logout</i>
+              <p>Logout</p>
+            </a>
+        </li>
          
           <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
