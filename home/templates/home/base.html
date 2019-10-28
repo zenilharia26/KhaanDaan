@@ -62,12 +62,12 @@
 											<li>
 												<a class="line smoth-scroll" href="#donation">Donation</a>
 											</li>
-											<li>
+											<!--<li>
 												<a class="line smoth-scroll" href="#food-estimator">Food Estimator</a>
-											</li>	
+											</li>-->	
 											{% if user.is_authenticated %}
 											<li>
-												<a class="line smoth-scroll" href="{% url 'dashboard' %}">Hey {{user.name}}</a>
+												<a class="line smoth-scroll" href="{% url 'dashboard' %}">Hey {{user.username}}</a>
 											</li>
 											<li>
 													<a class="line smoth-scroll" href="{% url 'logout' %}">Logout</a>

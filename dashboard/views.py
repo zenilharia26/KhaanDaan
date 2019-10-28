@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from users.models import KhaanDaanUsers
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -16,17 +16,22 @@ def profile(request):
 @login_required
 def table_list(request):
     user = KhaanDaanUsers.objects.get(user=request.user)
-    return render(request, 'dashboard/tables.html', {'user':user})
+    if user.user_type=='N':
+        return render(request, 'dashboard/tables.html', {'user':user})
+    else:
+        return redirect('dashboard')
 
 @login_required
 def typography(request):
     user = KhaanDaanUsers.objects.get(user=request.user)
     return render(request, 'dashboard/typography.html', {'user':user})
 
+'''
 @login_required
 def icons(request):
     user = KhaanDaanUsers.objects.get(user=request.user)
     return render(request, 'dashboard/icons.html', {'user':user})
+'''
 
 @login_required
 def map(request):

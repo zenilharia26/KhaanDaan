@@ -26,7 +26,7 @@
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="{% url 'dashboard' %}" class="simple-text logo-normal">
+      <div class="logo"><a href="{% url 'home' %}" class="simple-text logo-normal">
         Khaan-दान
         </a></div>
       <div class="sidebar-wrapper">
@@ -43,12 +43,14 @@
               <p>User Profile</p>
             </a>
           </li>
+          {% if user.user_type == 'N' %}
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'dashboard-table-list' %}">
               <i class="material-icons">search</i>
               <p>Search</p>
             </a>
           </li>
+          {% endif %}
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'dashboard-typography' %}">
               <i class="material-icons">account_balance_wallet</i>
@@ -397,40 +399,58 @@
                       <tr>
                         <td>1</td>
                         <td>Zenil Haria</td>
-                        <td>₹8,000</td>
+                    
                         {% if user.user_type == 'R' %}
-                        <td>Delivered Chicken Biryani to Regency Gardens</td>
+                        <td>₹8,000</td>
+                        <td>Delivered Shanghai Noodles to Regency Gardens</td>
                         {% else %}
+                        <td>Thane</td>
                         <td>Undertook NoC renewal of NGO</td>
                         {% endif %}
                       </tr>
                       <tr>
                         <td>2</td>
                         <td>Arghyadeep Das</td>
-                        <td>₹8,000</td>
                         {% if user.user_type == 'R' %}
-                        <td>Delivered Shanghai Noodles to Galeria Plaza</td>
+                        <td>₹8,000</td>
+                        <td>Delivered Chicken Biryani to Galeria Plaza</td>
+                        {% else %}
+                        <td>Kharghar</td>
+                        <td>Conducted the Baal Vikaas Polio Drive</td>
                         {% endif %}
                       </tr>
                       <tr>
                         <td>3</td>
                         <td>Aditya Kaushik</td>
-                        <td>₹6,000</td>
                         {% if user.user_type == 'R' %}
-                        <td>Joined work on October 25th, 2019</td>
+                        <td>₹8,000</td>
+                        <td>Joined work on October 25, 2019</td>
+                        {% else %}
+                        <td>Vashi</td>
+                        <td>Food distribution drive in Vashi</td>
                         {% endif %}
                       </tr>
                       <tr>
                         <td>4</td>
                         <td>Mihir Gada</td>
-                        <td>₹7,000</td>
-                        <td>Delivered Dal Kofta to Kesar Harmony</td>
+                        {% if user.user_type == 'R' %}
+                        <td>₹8,000</td>
+                        <td>Delivered Jain Noodles to Ghatkopar Colony</td>
+                        {% else %}
+                        <td>Dadar</td>
+                        <td>Collected excess food from Bhagat Tarachand</td>
+                        {% endif %}
                       </tr>
                       <tr>
                           <td>5</td>
                           <td>Darshan Chheda</td>
-                          <td>₹9,000</td>
-                          <td>Managed wedding party of Mr. Singhania</td>
+                          {% if user.user_type == 'R' %}
+                        <td>₹8,000</td>
+                        <td>Managed wedding party of Mr. Singhania</td>
+                        {% else %}
+                        <td>Mulund</td>
+                        <td>Conducted malnutrition awareness campaign</td>
+                        {% endif %}
                         </tr>
                     </tbody>
                   </table>
@@ -446,7 +466,12 @@
                       <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
                           <a class="nav-link active" href="#profile" data-toggle="tab">
-                            <i class="material-icons">person_pin</i> NGOs
+                              {% if user.user_type == 'R' %}
+                              <i class="material-icons">person_pin</i> NGOs
+                              {% else %}
+                              <i class="material-icons">local_dining</i> Hotels
+                              {% endif %}
+                            
                             <div class="ripple-container"></div>
                           </a>
                         </li>
@@ -482,7 +507,11 @@
                                 </label>
                               </div>
                             </td>
+                            {% if user.user_type == 'R' %}
                             <td>Contact U&I NGO to send excess food.</td>
+                            {% else %}
+                            <td>Contact Royal Palm Hotel for excess food.</td>
+                            {% endif %}
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -503,7 +532,11 @@
                                 </label>
                               </div>
                             </td>
+                            {% if user.user_type == 'R' %}
                             <td>Contact Suresh Truck Services to send food to Sishu Seva Sanstha.</td>
+                            {% else %}
+                            <td>Send tempo to Jassi da Dhaba to collect food.</td>
+                            {% endif %}
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -524,8 +557,11 @@
                                 </label>
                               </div>
                             </td>
-                            <td>Collect utensils from U&I NGO School.
-                            </td>
+                            {% if user.user_type == 'R' %}
+                            <td>Collect utensils from U&I NGO School, Dombivali.</td>
+                            {% else %}
+                            <td>Send tempo to Rising Orchid Hotel.</td>
+                            {% endif %}
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -546,7 +582,11 @@
                                 </label>
                               </div>
                             </td>
+                            {% if user.user_type == 'R' %}
                             <td>Collect order of food by Gurucharan NGO for Diwali party.</td>
+                            {% else %}
+                            <td>Contact Tawa Restaurant for collecting food for Diwali party.</td>
+                            {% endif %}
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip" title="Edit Task" class="btn btn-white btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -669,30 +709,30 @@
           <nav class="float-left">
             <ul>
               <li>
-                <a href="https://khaandaan.in">
+                <a href="https://github.com/zenilharia26/KhaanDaan" target="_blank">
                   Khaan-दान
                 </a>
               </li>
               <li>
-                <a href="https://creative-tim.com/presentation">
+                <a href="{% url 'home' %}" target="_blank">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="http://blog.creative-tim.com">
+                <a href="https://medium.com/@arghyadeep.d" target="_blank">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
+                <a href="https://github.com/zenilharia26/KhaanDaan/LICENSE", target="_blank">
+                  License
                 </a>
               </li>
             </ul>
           </nav>
           <div class="copyright float-right" id="date">
             , made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Khaan-दान</a> for a better web.
+            <a href="https://github.com/zenilharia26/KhaanDaan" target="_blank">Khaan-दान</a> for helping the world become a better place.
           </div>
         </div>
       </footer>
@@ -722,168 +762,7 @@
   <script src="../../static/dashboard//js/material-dashboard.js?v=2.1.0"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="../../static/dashboard//demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      $().ready(function() {
-        $sidebar = $('.sidebar');
 
-        $sidebar_img_container = $sidebar.find('.sidebar-background');
-
-        $full_page = $('.full-page');
-
-        $sidebar_responsive = $('body > .navbar-collapse');
-
-        window_width = $(window).width();
-
-        $('.fixed-plugin a').click(function(event) {
-          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-          if ($(this).hasClass('switch-trigger')) {
-            if (event.stopPropagation) {
-              event.stopPropagation();
-            } else if (window.event) {
-              window.event.cancelBubble = true;
-            }
-          }
-        });
-
-        $('.fixed-plugin .active-color span').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-color', new_color);
-          }
-
-          if ($full_page.length != 0) {
-            $full_page.attr('filter-color', new_color);
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.attr('data-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .background-color .badge').click(function() {
-          $(this).siblings().removeClass('active');
-          $(this).addClass('active');
-
-          var new_color = $(this).data('background-color');
-
-          if ($sidebar.length != 0) {
-            $sidebar.attr('data-background-color', new_color);
-          }
-        });
-
-        $('.fixed-plugin .img-holder').click(function() {
-          $full_page_background = $('.full-page-background');
-
-          $(this).parent('li').siblings().removeClass('active');
-          $(this).parent('li').addClass('active');
-
-
-          var new_image = $(this).find("img").attr('src');
-
-          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            $sidebar_img_container.fadeOut('fast', function() {
-              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-              $sidebar_img_container.fadeIn('fast');
-            });
-          }
-
-          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $full_page_background.fadeOut('fast', function() {
-              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-              $full_page_background.fadeIn('fast');
-            });
-          }
-
-          if ($('.switch-sidebar-image input:checked').length == 0) {
-            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
-            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
-          }
-
-          if ($sidebar_responsive.length != 0) {
-            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
-          }
-        });
-
-        $('.switch-sidebar-image input').change(function() {
-          $full_page_background = $('.full-page-background');
-
-          $input = $(this);
-
-          if ($input.is(':checked')) {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar_img_container.fadeIn('fast');
-              $sidebar.attr('data-image', '#');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page_background.fadeIn('fast');
-              $full_page.attr('data-image', '#');
-            }
-
-            background_image = true;
-          } else {
-            if ($sidebar_img_container.length != 0) {
-              $sidebar.removeAttr('data-image');
-              $sidebar_img_container.fadeOut('fast');
-            }
-
-            if ($full_page_background.length != 0) {
-              $full_page.removeAttr('data-image', '#');
-              $full_page_background.fadeOut('fast');
-            }
-
-            background_image = false;
-          }
-        });
-
-        $('.switch-sidebar-mini input').change(function() {
-          $body = $('body');
-
-          $input = $(this);
-
-          if (md.misc.sidebar_mini_active == true) {
-            $('body').removeClass('sidebar-mini');
-            md.misc.sidebar_mini_active = false;
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
-
-          } else {
-
-            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
-
-            setTimeout(function() {
-              $('body').addClass('sidebar-mini');
-
-              md.misc.sidebar_mini_active = true;
-            }, 300);
-          }
-
-          // we simulate the window Resize so the charts will get updated in realtime.
-          var simulateWindowResize = setInterval(function() {
-            window.dispatchEvent(new Event('resize'));
-          }, 180);
-
-          // we stop the simulation of Window Resize after the animations are completed
-          setTimeout(function() {
-            clearInterval(simulateWindowResize);
-          }, 1000);
-
-        });
-      });
-    });
-  </script>
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
