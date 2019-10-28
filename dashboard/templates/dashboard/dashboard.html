@@ -6,7 +6,7 @@
   <link rel="icon" href="../../static/home/img/khaan-daan.png" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Welcome to Khaan-दान
+   {{user.name}} - Dashboard
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -158,15 +158,15 @@
                     {% if user.user_type == 'R' %}
                       Daily Food Waste
                     {% else %}
-                      Daily Children Served
+                      Daily People Served
                     {% endif %}
                   </h4>
                   <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today's 
-                    {% if user.user_type == 'R' %}
-                      food waste.
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i>
+                      {% if user.user_type == 'R' %}
+                       55% </span>increase in today's food waste. 
                     {% else %}
-                      hunger.
+                    20% </span>increase in children served.
                     {% endif %}
                   </p>
                 </div>
@@ -185,16 +185,16 @@
                 <div class="card-body">
                   <h4 class="card-title">
                     {% if user.user_type == 'R' %}
-                      Yearly food waste.
+                      Month-wise food wasted
                     {% else %}
-                      Yearly children served.
+                      Month-wise people served
                     {% endif %}
                   </h4>
                   <p class="card-category">
                       {% if user.user_type == 'R' %}
-                        High wastage detected.
+                        High wastage detected in December
                       {% else %}
-                        People dying due to hunger.
+                        People served most in December
                       {% endif %}
                     
                   </p>
@@ -214,13 +214,19 @@
                 <div class="card-body">
                   <h4 class="card-title">
                       {% if user.user_type == 'R' %}
-                        Customer count by time.
+                        Customer count by time
                       {% else %}
-                        People served by time.
+                        People served by time
                       {% endif %}
                     
                   </h4>
-                  <p class="card-category">High rate around 3 PM</p>
+                  <p class="card-category">
+                      {% if user.user_type == 'R' %}
+                      High rate around 3 PM
+                    {% else %}
+                      Served most around 3 PM
+                    {% endif %}                    
+                  </p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -237,8 +243,14 @@
                   <div class="card-icon">
                     <i class="material-icons">restaurant</i>
                   </div>
+                  {% if user.user_type == 'R' %}
                   <p class="card-category">Food left today</p>
                   <h3 class="card-title">40 kg
+                    {% else %}
+                    <p class="card-category">Food collected today</p>
+                    <h3 class="card-title">30 kg
+                    {% endif %} 
+                  
   
                   </h3>
                 </div>
@@ -250,6 +262,7 @@
                 </div>
               </div>
             </div>
+            {% if user.user_type == 'R' %}
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-success card-header-icon">
@@ -266,6 +279,25 @@
                 </div>
               </div>
             </div>
+            {% else %}
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">local_florist</i>
+                    </div>
+                    <p class="card-category">Carbon Footprint</p>
+                    <h3 class="card-title">13543 gm</h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons">date_range</i> Last 24 Hours
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% if user.user_type == 'R' %}
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-danger card-header-icon">
@@ -282,6 +314,25 @@
                 </div>
               </div>
             </div>
+            {% else %}
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">my_location</i>
+                    </div>
+                    <p class="card-category">Hunger Spots</p>
+                    <h3 class="card-title">45 new identified</h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons">navigation</i> Most found near Dharavi
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% if user.user_type == 'R' %}
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
               <div class="card card-stats">
                 <div class="card-header card-header-info card-header-icon">
@@ -300,11 +351,34 @@
               </div>
             </div>
           </div>
+          {% else %}
+          <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">local_shipping</i>
+                  </div>
+                  <p class="card-category">Tempos at service</p>
+                  <h3 class="card-title">5</h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">update</i> Just Updated
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
           <div class="row">
             <div class="col-lg-6 col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
+                    {% if user.user_type == 'R' %}
                   <h4 class="card-title">Employees Stats</h4>
+                  {% else %}
+                  <h4 class="card-title">Volunteers Stats</h4>
+                  {% endif %}
                   <p class="card-category">Record till 27th October, 2019</p>
                 </div>
                 <div class="card-body table-responsive">
@@ -312,7 +386,11 @@
                     <thead class="text-warning">
                       <th><center>ID</center></th>
                       <th><center>Name</center></th>
+                      {% if user.user_type == 'R' %}
                       <th><center>Salary</center></th>
+                      {% else %}
+                      <th><center>Location</center></th>
+                      {% endif %}
                       <th><center>Remark</center></th>
                     </thead>
                     <tbody>
@@ -320,19 +398,27 @@
                         <td>1</td>
                         <td>Zenil Haria</td>
                         <td>₹8,000</td>
+                        {% if user.user_type == 'R' %}
                         <td>Delivered Chicken Biryani to Regency Gardens</td>
+                        {% else %}
+                        <td>Undertook NoC renewal of NGO</td>
+                        {% endif %}
                       </tr>
                       <tr>
                         <td>2</td>
                         <td>Arghyadeep Das</td>
                         <td>₹8,000</td>
+                        {% if user.user_type == 'R' %}
                         <td>Delivered Shanghai Noodles to Galeria Plaza</td>
+                        {% endif %}
                       </tr>
                       <tr>
                         <td>3</td>
                         <td>Aditya Kaushik</td>
                         <td>₹6,000</td>
+                        {% if user.user_type == 'R' %}
                         <td>Joined work on October 25th, 2019</td>
+                        {% endif %}
                       </tr>
                       <tr>
                         <td>4</td>
