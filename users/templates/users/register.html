@@ -46,40 +46,11 @@
                             {{ form|crispy }}
                         </fieldset>
                         <div class="form-group">
-                            <button class="btn btn-outline-info" type="submit" id="submit">Register</button>
-                        </div>
-<!--
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="{{ name }} Name" name="name">
-                        </div>
-        
-                        <div class="input-group">
-                            {% if name == 'Restaurant' %}
-                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="rid">
-                            {% else %}
-                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="nid">
-                            {% endif %}
-                        </div>
-            
-                        <div class="input-group">
-                            <input class="input--style-2" type="tel" placeholder="Mobile Number" name="mobile_no">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="E-mail Address" name="email_id">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Address" name="address">
-                        </div>         
-                        <div class="input-group">
-                                <input class="input--style-2" type="password" placeholder="Enter Password" name="password">
-                            </div> 
-                        <div class="input-group">
-                                <input class="input--style-2" type="password" placeholder="Confirm Password" name="confirm_password">
-                            </div>  
--->                             
+                            <button class="signup-btn btn btn-primary" type="submit">Register</button>
+                        </div>                           
                     </form>
                     <div class="border-top pt-3">
-                        <small class="text-muted">Already have an account?<a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
+                        <small class="text-muted">Already have an account? <a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
                     </div>
                 </div>
             </div>

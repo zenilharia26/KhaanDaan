@@ -146,27 +146,36 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Food currently available</h4>
-                  <p class="card-category">Choose the food you want to order</p>
+                  <h4 class="card-title "><font size="4">Food currently available</font></h4>
+                  <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
+                      </div>
+                    </div>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Food</th>
-                        <th>Quantity</th>
+                        <th><center>ID</center></th>
+                        <th><center>Name</center></th>
+                        <th><center>Location</center></th>
+                        <th><center>Food Item</center></th>
+                        <th><center>Quantity (in kg)</center></th>
+                        <th><center>Place Order</center></th>
                       </thead>
                       <tbody>
                           {% for f in food %}
                           <tr>
-                            <td>{{ f.restaurant.user.id }}</td>
-                            <td>{{ f.restaurant.name }}</td>
-                            <td>{{ f.restaurant.address }}</td>
-                            <td>{{ f.name }}</td>
-                            <td>{{ f.quantity }}</td>
+                            <td><center>{{ f.id }}</center></td>
+                            <td><center>{{ f.restaurant.name }}</center></td>
+                            <td><center>{{ f.restaurant.address }}</center></td>
+                            <td><center>{{ f.name }}</center></td>
+                            <td><center>{{ f.quantity }}</center></td>
+                            <td><center><div class="form-group">
+                                <button class="login-btn btn btn-primary" type="submit">Place Order</button></center>
+                            </div>
+                          </td>
                           </tr>
                         {% endfor %}
                         <!--<tr>
