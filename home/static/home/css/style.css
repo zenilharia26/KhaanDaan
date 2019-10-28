@@ -674,7 +674,25 @@ body {
 #profile {
     padding: 90px 0 80px;
     background-color: #777777;
+    position: relative;
 }
+#map {
+    z-index: 2;
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+  }
+  
+  .bd-docs.dark-edition .bd-example {
+    background-color: #1a2035;
+    border: 0;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .bd-docs.dark-edition {
+    background-color: #fff;
+  }
 
 #port-image .mix {
     display: none;

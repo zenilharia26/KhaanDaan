@@ -1,5 +1,4 @@
 from django import forms
-#from users.models import Restaurant, NGO
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -15,7 +14,6 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['name', 'user_type', 'mobile', 'email', 'address','username', 'password1','password2']
-
 
 '''
 class NGOForm(forms.ModelForm):

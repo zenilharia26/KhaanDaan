@@ -15,7 +15,7 @@
   <!-- CSS Files -->
   <link href="../../static/dashboard//css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  
+  <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
 </head>
 
 <body class="dark-edition">
@@ -64,18 +64,26 @@
             <p>Notifications</p>
           </a>
         </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'dashboard-map' %}">
+            <i class="material-icons">map</i>
+            <p>Maps</p>
+          </a>
+        </li>
+        {% if user.user_type == 'R' %}
           <li class="nav-item ">
-            <a class="nav-link" href="{% url 'dashboard-map' %}">
-              <i class="material-icons">map</i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-              <a class="nav-link" href="{% url 'logout' %}">
-                <i class="material-icons">logout</i>
-                <p>Logout</p>
+              <a class="nav-link" href="{% url 'dashboard-add-food' %}">
+                <i class="material-icons">local_dining</i>
+                <p>AddFood</p>
               </a>
-            </li>
+          </li>
+        {% endif %}
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'logout' %}">
+              <i class="material-icons">logout</i>
+              <p>Logout</p>
+            </a>
+        </li>
          
           <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
@@ -286,7 +294,7 @@
                 <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">local_florist</i>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="52" height="52" viewBox="0 0 226 226" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,226v-226h226v226z" fill="none"></path><g fill="#ffffff"><path d="M197.75,2.17308c-26.07692,36.94231 -97.78846,20.64423 -140.16346,85.83654c-37.58744,57.85817 19.55769,94.52885 34.76923,92.35577c-49.98077,34.76923 -63.01923,27.16346 -69.53846,29.33654c-8.82812,2.95403 -5.43269,16.29808 6.51923,15.21154c17.38462,-3.25962 56.5,-29.33654 67.36538,-38.02885c9.91466,-7.91136 57.58654,-45.63462 85.83654,-115.17308c-20.64423,78.23077 -66.27885,118.43269 -73.61298,124.91797c4.07452,6.55318 12.73287,15.89063 33.41106,19.59164c42.375,7.60577 106.48077,-49.98077 55.41346,-214.04808z"></path></g></g></svg>
                     </div>
                     <p class="card-category">Carbon Footprint</p>
                     <h3 class="card-title">13543 gm</h3>

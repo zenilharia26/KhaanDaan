@@ -16,6 +16,7 @@
   <link href="../../static/dashboard//css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../../static/dashboard//demo/demo.css" rel="stylesheet" />
+  
 </head>
 
 <body class="dark-edition">
@@ -76,12 +77,6 @@
                 <p>Logout</p>
               </a>
             </li>
-          <!-- <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
-                </a>
-            </li> -->
         </ul>
       </div>
     </div>
@@ -99,15 +94,7 @@
             <span class="navbar-toggler-icon icon-bar"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
+            
             <ul class="navbar-nav">
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'dashboard' %}">
@@ -146,8 +133,79 @@
           </div>
         </nav>
       <!-- End Navbar -->
-      <!--Map functionality-->
-      <div id="map"></div>
+      <!--Map functionality-->  
+      <style>
+          html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          .controls {
+            margin-top: 10px;
+            border: 1px solid transparent;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            height: 32px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+          }
+        
+          #origin-input,
+          #destination-input {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 200px;
+          }
+        
+          #origin-input:focus,
+          #destination-input:focus {
+            border-color: #4d90fe;
+          }
+        
+          #mode-selector {
+            color: #fff;
+            background-color: #4d90fe;
+            margin-left: 12px;
+            width: 400px;
+            
+          }
+        
+          #mode-selector label {
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 300;
+            width: 400px;
+          }
+        
+          </style>
+      <div>
+          <input id="origin-input" class="controls" type="text"
+            placeholder="Enter source">
+      
+          <input id="destination-input" class="controls" type="text"
+            placeholder="Enter destination">
+          <div id="mode-selector" class="controls">
+              <input type="radio" name="type" id="changemode-driving" checked="checked">
+              <label for="changemode-driving">Driving</label>
+
+              <input type="radio" name="type" id="changemode-walking">
+              <label for="changemode-walking">Walking</label>
+                      
+          </div>
+        </div>
+         
+          <label style='color:black'>Distance</label>
+          <input readonly value='' id='distance' name="distance" type="text" required>
+      
+          <label style='color:black'>Time</label>
+          <input readonly value='' id='time' name="time" type="text" required>
+    <div id="map"></div>
     </div>
   </div>
   <!--   Core JS Files   -->
@@ -159,7 +217,122 @@
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUbRHtu3k_fg3jDGk_qAatE5jA4bC_ndE"></script>
+  <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script
+      // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+      
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          mapTypeControl: false,
+          center: {lat: 19.07, lng: 72.8777},
+          zoom: 13
+        });
+      
+        new AutocompleteDirectionsHandler(map);
+      }
+      
+      /**
+       * @constructor
+       */
+      function AutocompleteDirectionsHandler(map) {
+        this.map = map;
+        this.originPlaceId = null;
+        this.destinationPlaceId = null;
+        this.travelMode = 'DRIVING';
+        this.directionsService = new google.maps.DirectionsService;
+        this.directionsRenderer = new google.maps.DirectionsRenderer;
+        this.directionsRenderer.setMap(map);
+      
+        var originInput = document.getElementById('origin-input');
+        var destinationInput = document.getElementById('destination-input');
+        var modeSelector = document.getElementById('mode-selector');
+      
+        var originAutocomplete = new google.maps.places.Autocomplete(originInput);
+        // Specify just the place data fields that you need.
+        originAutocomplete.setFields(['place_id']);
+      
+        var destinationAutocomplete =
+            new google.maps.places.Autocomplete(destinationInput);
+        // Specify just the place data fields that you need.
+        destinationAutocomplete.setFields(['place_id']);
+      
+        this.setupClickListener('changemode-walking', 'WALKING');
+        
+        this.setupClickListener('changemode-driving', 'DRIVING');
+      
+        this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+        this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+      
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+            destinationInput);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+      }
+      
+      // Sets a listener on a radio button to change the filter type on Places
+      // Autocomplete.
+      AutocompleteDirectionsHandler.prototype.setupClickListener = function(
+          id, mode) {
+        var radioButton = document.getElementById(id);
+        var me = this;
+      
+        radioButton.addEventListener('click', function() {
+          me.travelMode = mode;
+          me.route();
+        });
+      };
+      
+      AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(
+          autocomplete, mode) {
+        var me = this;
+        autocomplete.bindTo('bounds', this.map);
+      
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+      
+          if (!place.place_id) {
+            window.alert('Please select an option from the dropdown list.');
+            return;
+          }
+          if (mode === 'ORIG') {
+            me.originPlaceId = place.place_id;
+          } else {
+            me.destinationPlaceId = place.place_id;
+          }
+          me.route();
+        });
+      };
+      
+      AutocompleteDirectionsHandler.prototype.route = function() {
+        if (!this.originPlaceId || !this.destinationPlaceId) {
+          return;
+        }
+        var me = this;
+      
+        this.directionsService.route(
+            {
+              origin: {'placeId': this.originPlaceId},
+              destination: {'placeId': this.destinationPlaceId},
+              travelMode: this.travelMode
+            },
+            function(response, status) {
+              if (status === 'OK') {
+                me.directionsRenderer.setDirections(response);
+                console.log(response);
+                  document.getElementById('distance').value = response.routes[0].legs[0].distance.text;
+                  document.getElementById('time').value = response.routes[0].legs[0].duration.text;
+                  nums = response.routes[0].legs[0].duration.text.split(" ");
+              } else {
+                window.alert('Directions request failed due to ' + status);
+              }
+            });
+      };
+      
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvsSHWi2gggVVWG6Cmgi_kMD9IDwP0fI8&libraries=places&callback=initMap"
+              async defer></script>
   <!-- Chartist JS -->
   <script src="../../static/dashboard//js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -168,12 +341,7 @@
   <script src="../../static/dashboard//js/material-dashboard.js?v=2.1.0"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="../../static/dashboard//demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initGoogleMaps();
-    });
-  </script>
+
 </body>
 
 </html>
