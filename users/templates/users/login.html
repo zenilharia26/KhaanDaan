@@ -32,8 +32,16 @@
 {% endblock header %}
 
 {% block content %}
+
     <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
         <div class="wrapper wrapper--w960">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
             <div class="card card-2">
                 <div class="card-heading"></div>
                 <div class="card-body">
@@ -48,35 +56,7 @@
                         <div class="form-group">
                             <button class="btn btn--radius btn--blue" type="submit" id="submit">Login</button>
                         </div>
-<!--
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="{{ name }} Name" name="name">
-                        </div>
-        
-                        <div class="input-group">
-                            {% if name == 'Restaurant' %}
-                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="rid">
-                            {% else %}
-                                <input class="input--style-2" type="text" placeholder="{{ name }} Identification Number" name="nid">
-                            {% endif %}
-                        </div>
-            
-                        <div class="input-group">
-                            <input class="input--style-2" type="tel" placeholder="Mobile Number" name="mobile_no">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="E-mail Address" name="email_id">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Address" name="address">
-                        </div>         
-                        <div class="input-group">
-                                <input class="input--style-2" type="password" placeholder="Enter Password" name="password">
-                            </div> 
-                        <div class="input-group">
-                                <input class="input--style-2" type="password" placeholder="Confirm Password" name="confirm_password">
-                            </div>  
--->                             
+                            
                     </form>
                     <div class="border-top pt-3">
                         <small class="text-muted">Don't have an account?<a class="ml-2" href="{% url 'Register' %}">Sign Up</a></small>
