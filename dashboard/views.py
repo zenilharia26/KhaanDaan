@@ -17,10 +17,10 @@ def profile(request):
         post = request.POST
         KhaanDaanUsers.objects.filter(user=request.user).update(name=post.get("name",""), email_id=post.get("email_id",""), mobile_no=post.get("mobile_no",""), address=post.get("address",""))
     user = KhaanDaanUsers.objects.get(user=request.user)
-    return render(request, 'dashboard/user.html', {'user':user})
+    return render(request, 'dashboard/profile.html', {'user':user})
 
 @login_required
-def table_list(request):
+def search(request):
     user = KhaanDaanUsers.objects.get(user=request.user)
     food=Food.objects.filter(served_to = '')
     
@@ -28,18 +28,18 @@ def table_list(request):
         Food.objects.filter(id=request.POST.get("food_id","")).update(served_to=user.name)
         return redirect('dashboard-table-list')
     if user.user_type=='N':
-        return render(request, 'dashboard/tables.html', {'user':user,'food':food})
+        return render(request, 'dashboard/search.html', {'user':user,'food':food})
     else:
         return redirect('dashboard')
         
 @login_required
-def typography(request):
+def transaction(request):
     user = KhaanDaanUsers.objects.get(user=request.user)
     if user.user_type == 'N':
         food = Food.objects.filter(served_to=user.name)
     else:
         food = Food.objects.filter(restaurant=user).exclude(served_to='')
-    return render(request, 'dashboard/typography.html', {'user':user, 'food':food})
+    return render(request, 'dashboard/transaction.html', {'user':user, 'food':food})
 
 
 @login_required

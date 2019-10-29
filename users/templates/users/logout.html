@@ -41,10 +41,10 @@
                     <h2 class="title">You have been logged out from Khaan-दान. Please visit again!</h2>
 
                     <div class="border-top pt-3">
-                        <small class="text-muted">Don't have an account? <a class="ml-2" href="{% url 'Register' %}">Sign Up</a></small>
+                        <p class="text-muted">Don't have an account? <a class="ml-2" href="{% url 'Register' %}">Sign Up</a></p>
                     </div>
                     <div class="border-top pt-3">
-                            <small class="text-muted">Already have an account? <a class="ml-2" href="{% url 'login' %}">Login</a></small>
+                            <p class="text-muted">Already have an account? <a class="ml-2" href="{% url 'login' %}">Login</a></p>
                         </div>
                 </div>
             </div>
@@ -60,14 +60,6 @@
 
     <!-- Main JS-->
     <script src="{% static 'js/global.js' %}"></script>
-
-    <!--<script type="text/javascript">
-        document.getElementById("submit").onclick = function(){
-            location.href = "NiceAdmin\login.html";
-        };
-     </script>-->
-
-   
 {% endblock content %}
 </html>
 <!-- end document-->
