@@ -47,7 +47,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="{% url 'dashboard-table-list' %}">
               <i class="material-icons">search</i>
-              <p>Search</p>
+              <p>Search Food</p>
             </a>
           </li>
           {% endif %}
@@ -173,8 +173,8 @@
                                       </div>
                                       <div class="modal-body">
                                         <center><h3>Confirm Order?</h3></center>
-                                        <p>Food: {{ f.name }}</p>
-                                        <p>Quantity: {{ f.quantity }}</p>
+                                        <p>Food item: {{ f.name }}</p>
+                                        <p>Quantity: {{ f.quantity }} kg</p>
                                         <p>Restaurant: {{ f.restaurant.name }}</p>
                                         <p>Address: {{ f.restaurant.address }}</p>
                                         <p>Mobile Number: {{ f.restaurant.mobile_no }}</p>
@@ -333,7 +333,7 @@
               </ul>
             </nav>
             <div class="copyright float-right" id="date">
-              , made with <i class="material-icons">favorite</i> by
+              © 2019, made with <i class="material-icons">favorite</i> by
               <a href="https://github.com/zenilharia26/KhaanDaan" target="_blank">Khaan-दान</a> for helping the world become a better place.
             </div>
           </div>

@@ -47,7 +47,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'dashboard-table-list' %}">
               <i class="material-icons">search</i>
-              <p>Search</p>
+              <p>Search Food</p>
             </a>
           </li>
           {% endif %}
@@ -141,80 +141,111 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title">Notifications</h4>
-              <p class="card-category">Handcrafted by our friend
-                <a target="_blank" href="https://github.com/mouse0270">Robert McIntosh</a>. Please checkout the
-                <a href="http://bootstrap-notify.remabledesigns.com/" target="_blank">full documentation.</a>
-              </p>
+              <h4 class="card-title">Notifications Panel</h4>
+              <p class="card-category">Look what you have missed!</p>
             </div>
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6">
-                  <h4 class="card-title">Notifications Style</h4>
-                  <div class="alert alert-info">
-                    <span>This is a plain notification</span>
+                  <h4 class="card-title">Here's what we fetched:</h4>
+
+                  <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <i class="material-icons">close</i>
+                    </button>
+                    {% if user.user_type == 'R' %}
+                    <span>Your carbon footprint goal for today was met successfully. Cheers!</span>
+                    {% else %}
+                    <span>Your request was successfully sent to Hotel Blue Orchid. </span>
+                    {% endif %}
                   </div>
                   <div class="alert alert-info">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <i class="material-icons">close</i>
                     </button>
-                    <span>This is a notification with close button.</span>
+                    {% if user.user_type == 'R' %}
+                    <span>A new request received from Seva Sanstha.</span>
+                    {% else %}
+                    <span> Polio Drive was conducted in Borivali.</span>
+                    {% endif %}
                   </div>
-                  <div class="alert alert-info alert-with-icon" data-notify="container">
-                    <i class="material-icons" data-notify="icon">add_alert</i>
+                  <div class="alert alert-danger">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <i class="material-icons">close</i>
                     </button>
-                    <span data-notify="message">This is a notification with close button and icon.</span>
+                    {% if user.user_type == 'R' %}
+                    <span>Your fire safety audit score is very poor. Please take appropriate actions as soon as possible.</span>
+                    {% else %}
+                    <span> Spike in number of hungry people near Dharavi.</span>
+                    {% endif %}
                   </div>
-                  <div class="alert alert-info alert-with-icon" data-notify="container">
-                    <i class="material-icons" data-notify="icon">add_alert</i>
+                  <div class="alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <i class="material-icons">close</i>
                     </button>
-                    <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>
+                    {% if user.user_type == 'R' %}
+                    <span>Your electricity bill for the month of September is still pending.</span>
+                    {% else %}
+                    <span> NoC renewal deadline is approaching fast. Renew by 2nd November, 2019.</span>
+                    {% endif %}
+                  </div>
+                 
+                  <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <i class="material-icons">close</i>
+                    </button>
+                    {% if user.user_type == 'R' %}
+                    <span>Contract renewal with GoDaddy was done.</span>
+                    {% else %}
+                    <span>Royal Tulip Hotel approved your request for 10 kg of Dal Rice.</span>
+                    {% endif %}
+                  </div>
+                  <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <i class="material-icons">close</i>
+                    </button>
+                    {% if user.user_type == 'R' %}
+                    <span>Excess food collected by Angel Heart NGO at 9:00 PM.</span>
+                    {% else %}
+                    <span>Food distribution done in 25/A, Dharavi at 9:20 PM.</span>
+                    {% endif %}
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <h4 class="card-title">Notification states</h4>
+                  <h4 class="card-title">Notification Legend</h4>
                   <div class="alert alert-info">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <i class="material-icons">close</i>
                     </button>
                     <span>
-                      <b> Info - </b> This is a regular notification made with ".alert-info"</span>
+                      <b> Info - </b> This is a regular notification of moderate priority.</span>
                   </div>
                   <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <i class="material-icons">close</i>
                     </button>
                     <span>
-                      <b> Success - </b> This is a regular notification made with ".alert-success"</span>
+                      <b> Success - </b> This is a success notification.</span>
                   </div>
                   <div class="alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <i class="material-icons">close</i>
                     </button>
                     <span>
-                      <b> Warning - </b> This is a regular notification made with ".alert-warning"</span>
+                      <b> Warning - </b> This is a warning notification with moderate priority.</span>
                   </div>
                   <div class="alert alert-danger">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <i class="material-icons">close</i>
                     </button>
                     <span>
-                      <b> Danger - </b> This is a regular notification made with ".alert-danger"</span>
+                      <b> Danger - </b> This is a danger notification with high priority.</span>
                   </div>
-                  <div class="alert alert-primary">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <i class="material-icons">close</i>
-                    </button>
-                    <span>
-                      <b> Primary - </b> This is a regular notification made with ".alert-primary"</span>
-                  </div>
+
                 </div>
               </div>
             </div>
+            <!--
             <div class="col-md-12">
               <div class="places-buttons">
                 <div class="row">
@@ -257,8 +288,10 @@
                 </div>
               </div>
             </div>
+          -->
           </div>
         </div>
+  
       </div>
       <footer class="footer">
           <div class="container-fluid">
