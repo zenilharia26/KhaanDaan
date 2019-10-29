@@ -11,3 +11,5 @@ class KhaanDaanUsers(models.Model):
     email_id = models.EmailField(max_length=100, null=False)
     address = models.CharField(max_length=200, null=False)
     user_type = models.CharField(max_length=20, choices=[('R','Restaurant'),('N','NGO')])
+    image=models.ImageField(default='default.jpg',upload_to='profile_pics')
+    

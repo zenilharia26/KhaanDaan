@@ -219,14 +219,8 @@
             <div class="col-md-4">
               <div class="card card-profile">
                 <div class="card-avatar">
-                  <a href="#">
-                      {% if user.user_type == 'R' %}
-                      <img class="img" src="../../static/dashboard//img/faces/hotel.png" />
-                    {% else %}
-                    <img class="img" src="../../static/dashboard//img/faces/ngo.png" />
-                    {% endif %}
-                    <h4 class="card-title">{{user.name}}</h4>               
-                  </a>
+                      <img class="img" src="{{ user.image.url }}" />
+                    <h4 class="card-title">{{ user.name }}</h4>               
                 </div>
                 <div class="card-body">
                   {% if user.user_type == 'R' %}
@@ -236,7 +230,7 @@
                   {% endif %}
                   <h4 class="card-title">{{user.name}}</h4>
                   
-                  <a href="#pablo" class="btn btn-primary btn-round">Upload Picture</a>
+                  <a href="#" class="btn btn-primary btn-round">Upload Picture</a>
                 </div>
               </div>
             </div>

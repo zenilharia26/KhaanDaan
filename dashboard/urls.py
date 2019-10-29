@@ -1,6 +1,8 @@
 from django.urls import path
 from django.conf.urls import url,include
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.dashboard, name='dashboard'),
@@ -10,4 +12,4 @@ urlpatterns = [
     path('map/', views.map, name='dashboard-map'),
     path('notifications/', views.notifications, name='dashboard-notifications'),
     path('addfood/', views.add_food, name='dashboard-add-food')
-]
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

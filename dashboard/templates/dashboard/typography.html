@@ -141,8 +141,13 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title">Material Dashboard Heading</h4>
-              <p class="card-category">Created using Roboto Font Family</p>
+              {% if user.user_type == 'R' %}
+              <h4 class="card-title">NGOs Served</h4>
+              <p class="card-category">Details of food sent to different NGOs</p>
+              {% else %}
+              <h4 class="card-title">Food Orders placed</h4>
+              <p class="card-category">Details of food collected from different hotels/NGOs</p>
+              {% endif %}
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -151,7 +156,11 @@
                         <th><center>ID</center></th>
                         <th><center>Food</center></th>
                         <th><center>Quantity</center></th>
+                        {% if user.user_type == 'N' %}
                         <th><center>Restaurant</center></th>
+                        {% else %}
+                        <th><center>NGO</center></th>
+                        {% endif %}
                         <th><center>Mobile Number</center></th>
                       </thead>
                       <tbody>
