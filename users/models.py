@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from PIL import Image
 # Create your models here.
 
 class KhaanDaanUsers(models.Model):
@@ -12,4 +12,3 @@ class KhaanDaanUsers(models.Model):
     address = models.CharField(max_length=200, null=False)
     user_type = models.CharField(max_length=20, choices=[('R','Restaurant'),('N','NGO')])
     image=models.ImageField(default='default.jpg',upload_to='profile_pics')
-    
