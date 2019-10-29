@@ -25,7 +25,7 @@ def table_list(request):
     food=Food.objects.filter(served_to = '')
     
     if request.method == 'POST':
-        Food.objects.filter(id=request.POST.get("food_id","")).update(served_to=user.user.username)
+        Food.objects.filter(id=request.POST.get("food_id","")).update(served_to=user.name)
         return redirect('dashboard-table-list')
     if user.user_type=='N':
         return render(request, 'dashboard/tables.html', {'user':user,'food':food})
@@ -35,7 +35,10 @@ def table_list(request):
 @login_required
 def typography(request):
     user = KhaanDaanUsers.objects.get(user=request.user)
-    food = Food.objects.filter(served_to=user.user.username)
+    if user.user_type == 'N':
+        food = Food.objects.filter(served_to=user.name)
+    else:
+        food = Food.objects.filter(restaurant=user).exclude(served_to='')
     return render(request, 'dashboard/typography.html', {'user':user, 'food':food})
 
 
