@@ -157,10 +157,42 @@
                             <td><center>{{ f.restaurant.address }}</center></td>
                             <td><center>{{ f.name }}</center></td>
                             <td><center>{{ f.quantity }}</center></td>
-                            <td><center><div class="form-group">
-                                <button class="login-btn btn btn-primary" type="submit">Place Order</button></center>
-                            </div>
-                          </td>
+                            <td><center>
+                              <div class="form-group">
+                                  <button type="button" class="login-btn btn btn-primary" data-toggle="modal" data-target="#myModal{{ f.id }}">
+                                      Place Order
+                                  </button>
+                              </div>
+                            </center></td>
+                              <div class="modal fade" id="myModal{{ f.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <!--<h4 class="modal-title" id="myModalLabel">Confirm Order</h4>-->
+                                      </div>
+                                      <div class="modal-body">
+                                        <center><h3>Confirm Order?</h3></center>
+                                        <p>Food: {{ f.name }}</p>
+                                        <p>Quantity: {{ f.quantity }}</p>
+                                        <p>Restaurant: {{ f.restaurant.name }}</p>
+                                        <p>Address: {{ f.restaurant.address }}</p>
+                                        <p>Mobile Number: {{ f.restaurant.mobile_no }}</p>
+                                        <p>Email ID: {{ f.restaurant.email_id }}</p>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <form method="POST">
+                                        {% csrf_token %}
+                                          <input type="hidden" name="food_id" value="{{ f.id }}">
+                                          <center>
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              <button type="submit" class="btn btn-primary"> Confirm Order </button>
+                                          </center>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
                           </tr>
                         {% endfor %}
                         <!--<tr>

@@ -27,6 +27,11 @@ def profile(request):
 def table_list(request):
     user = KhaanDaanUsers.objects.get(user=request.user)
     food=Food.objects.all()
+
+    if request.method == 'POST':
+        food_req = Food.objects.get(id=request.POST.get("food_id",""))
+        food_req.delete()
+        return redirect('dashboard-table-list')
     if user.user_type=='N':
         return render(request, 'dashboard/tables.html', {'user':user,'food':food})
     else:
