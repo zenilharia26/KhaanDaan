@@ -93,12 +93,24 @@
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:void(0)">Map</a>
+            <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <input readonly type="text" id="distance" name="distance" placeholder="   Distance" class="form-control" style="background-color: rgba(255, 255, 255, 0.075);">
+                  </div>
+                </div>
 
-            <label style='color:white'>Distance</label>
+                <div class="col-md-5">
+                    <div class="form-group">
+                      <input readonly type="text" id="time" name="time" placeholder="   Time" class="form-control" style="background-color: rgba(255, 255, 255, 0.075);">
+                    </div>
+                  </div>
+              </div>
+            <!-- <label style='color:white'>Distance</label>
             <input readonly value='' id='distance' name="distance" type="text" required>
       
             <label style='color:white'>Time</label>
-            <input readonly value='' id='time' name="time" type="text" required>
+            <input readonly value='' id='time' name="time" type="text" required> -->
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
             <span class="sr-only">Toggle navigation</span>
@@ -174,7 +186,7 @@
             border-color: #4d90fe;
           }
         
-          #mode-selector {
+          /* #mode-selector {
             color: #fff;
             background-color: #4d90fe;
             margin-left: 12px;
@@ -187,7 +199,7 @@
             font-size: 13px;
             font-weight: 300;
             width: 400px;
-          }
+          } */
         
           </style>
       <div>
@@ -197,11 +209,9 @@
           <input id="destination-input" class="controls" type="text"
             placeholder="Enter destination">
           <div id="mode-selector" class="controls">
-              <input type="radio" name="type" id="changemode-driving" checked="checked">
-              <label for="changemode-driving">Driving</label>
+              <input type="hidden" name="type" id="changemode-driving" checked="checked">
 
-              <input type="radio" name="type" id="changemode-walking">
-              <label for="changemode-walking">Walking</label>
+              <input type="hidden" name="type" id="changemode-walking">
                       
           </div>
         </div>
