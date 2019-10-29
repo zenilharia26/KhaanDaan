@@ -3,7 +3,7 @@
 
 <div align="center">
 
-<img src="./Snapshots/khaan-daan.png" width=350px/>
+<img src="./Snapshots/khaan-daan.png" width=200px/>
 
 <br>
 
@@ -18,7 +18,7 @@
 
 ---
 
-<h2>Motivation</h2>
+<h2>Motivation:</h2>
 
 A lot of food is wasted on a daily basis in weddings, parties, restaurants and hotels in India. India, being a poverty affected country, deals with tough situations to meet everyone's basic demands. **India currently ranks 105 out of 117 countries, below all South-East Asian countries on global hunger and poverty index.** To deal with the issue of food wastage and poverty, we aim to have these two issues juxtapose each other to become a solution. We aim to create a portal, where we will identify hotels and restaurants that deal with the issue of food wastage and also NGOs that work in the field of feeding the needy ones. This one stop portal will help ease the process of connecting both these entities. The restaurants and hotels will be provided with statistics about weekly/monhly food wastage so that they can improve on food wastage. 
 
@@ -40,10 +40,26 @@ A lot of food is wasted on a daily basis in weddings, parties, restaurants and h
 <h3 align="center">Khaan-दान as a webapp:</h3>
 
 <div align="center">
-
-<img src="./Snapshots/khaan-daan.png" width=900px/>
+<h4 align="center">Homepage</h4>
+<img src="./Snapshots/ss1.png" width=900px/>
 <br>
-<img src="./Snapshots/khaan-daan.png" width=900px/>
+<h4 align="center">Hunger Spots</h4>
+<img src="./Snapshots/ss2.png" width=900px/>
+<br>
+<h4 align="center">Dashboard</h4>
+<img src="./Snapshots/ss3.png" width=900px/>
+<br>
+<h4 align="center">Notifications</h4>
+<img src="./Snapshots/ss4.png" width=900px/>
+<br>
+<h4 align="center">Distance and Time finder</h4>
+<img src="./Snapshots/ss5.png" width=900px/>
+<br>
+<h4 align="center">NGOs placing order for excess food</h4>
+<img src="./Snapshots/ss6.png" width=900px/>
+<br>
+<h4 align="center">Food collection History</h4>
+<img src="./Snapshots/ss7.png" width=900px/>
 <br>
 </div>
 
