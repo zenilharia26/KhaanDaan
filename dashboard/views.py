@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from dashboard.forms import AddFood
 from dashboard.models import Food
+from django.contrib import messages
 
 @login_required
 def dashboard(request):
@@ -63,6 +64,7 @@ def add_food(request):
         food.quantity = request.POST.get("quantity","")
         food.served_to = ''
         food.save()
+        messages.success(request,f'{food.name} was added successfully!')
         return redirect('dashboard-add-food')
     else:
         form = AddFood()
