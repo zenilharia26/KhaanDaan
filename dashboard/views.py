@@ -66,5 +66,5 @@ def add_food(request):
     else:
         form = AddFood()
     
-    return render(request, 'dashboard/food.html', {'form':form})
+    return render(request, 'dashboard/food.html', {'form':form, 'user':user})
         
