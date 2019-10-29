@@ -151,8 +151,12 @@
                         <th><center>ID</center></th>
                         <th><center>Food</center></th>
                         <th><center>Quantity</center></th>
-                        <th><center>Restaurant</center></th>
-                        <th><center>Mobile Number</center></th>
+                        {% if user.user_type == 'N' %}
+                          <th><center>Restaurant</center></th>
+                          <th><center>Mobile Number</center></th>
+                        {% else %}
+                          <th><center>NGO</center></th>
+                        {% endif %}
                       </thead>
                       <tbody>
                           {% for f in food %}
@@ -160,8 +164,12 @@
                             <td><center>{{ f.id }}</center></td>
                             <td><center>{{ f.name }}</center></td>
                             <td><center>{{ f.quantity }}</center></td>
-                            <td><center>{{ f.restaurant.name }}</center></td>
-                            <td><center>{{ f.restaurant.mobile_no }}</center></td>
+                            {% if user.user_type == 'N' %}
+                              <td><center>{{ f.restaurant.name }}</center></td>
+                              <td><center>{{ f.restaurant.mobile_no }}</center></td>
+                            {% else %}
+                              <td><center>{{ f.served_to }}</center></td>
+                            {% endif %}
                           </tr>
                         {% endfor %}
                       </tbody>
