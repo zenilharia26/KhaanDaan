@@ -12,6 +12,14 @@ def dashboard(request):
 
 @login_required
 def profile(request):
+    if request.method == 'POST':
+        # user.name = request.POST.get("name","")
+        # user.email_id = request.POST.get("email_id","")
+        # user.mobile_no = request.POST.get("mobile_no","")
+        # user.address = request.POST.get("address","")
+        # user.save()
+        post = request.POST
+        KhaanDaanUsers.objects.filter(user=request.user).update(name=post.get("name",""), email_id=post.get("email_id",""), mobile_no=post.get("mobile_no",""), address=post.get("address",""))
     user = KhaanDaanUsers.objects.get(user=request.user)
     return render(request, 'dashboard/user.html', {'user':user})
 
@@ -46,13 +54,15 @@ def add_food(request):
     if user.user_type == 'N':
         return redirect('dashboard')
     if request.method == 'POST':
+        print(request)
+        print(request.POST)
         food = Food()
         food.restaurant = user
         food.name = request.POST.get("name","")
         food.food_type = request.POST.get("food_type","")
         food.quantity = request.POST.get("quantity","")
         food.save()
-        return redirect('dashboard')
+        return redirect('dashboard-add-food')
     else:
         form = AddFood()
     

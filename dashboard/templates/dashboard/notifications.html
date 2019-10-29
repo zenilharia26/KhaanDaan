@@ -57,24 +57,31 @@
               <p>Transactions</p>
             </a>
           </li>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'dashboard-notifications' %}">
-            <i class="material-icons">notifications</i>
-            <p>Notifications</p>
-          </a>
-        </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="{% url 'dashboard-map' %}">
-              <i class="material-icons">map</i>
-              <p>Maps</p>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'dashboard-notifications' %}">
+              <i class="material-icons">notifications</i>
+              <p>Notifications</p>
             </a>
           </li>
-          <li class="nav-item ">
-              <a class="nav-link" href="{% url 'logout' %}">
-                <i class="material-icons">logout</i>
-                <p>Logout</p>
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'dashboard-map' %}">
+                <i class="material-icons">map</i>
+                <p>Maps</p>
               </a>
+            </li>
+            {% if user.user_type == 'R' %}
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'dashboard-add-food' %}">
+                  <i class="material-icons">local_dining</i>
+                  <p>Add Food</p>
+                </a>
+            </li>
+            {% endif %}
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'logout' %}">
+                  <i class="material-icons">logout</i>
+                  <p>Logout</p>
+                </a>
             </li>
           <!-- <li class="nav-item active-pro ">
                 <a class="nav-link" href="./upgrade.html">
