@@ -7,4 +7,5 @@ class Food(models.Model):
     name = models.CharField(max_length=50, null=False)
     food_type = models.CharField(max_length=50)
     quantity = models.FloatField(null=False)
+    served_to = models.CharField(max_length=50)
 # Create your models here.

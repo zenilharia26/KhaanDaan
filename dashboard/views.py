@@ -13,11 +13,6 @@ def dashboard(request):
 @login_required
 def profile(request):
     if request.method == 'POST':
-        # user.name = request.POST.get("name","")
-        # user.email_id = request.POST.get("email_id","")
-        # user.mobile_no = request.POST.get("mobile_no","")
-        # user.address = request.POST.get("address","")
-        # user.save()
         post = request.POST
         KhaanDaanUsers.objects.filter(user=request.user).update(name=post.get("name",""), email_id=post.get("email_id",""), mobile_no=post.get("mobile_no",""), address=post.get("address",""))
     user = KhaanDaanUsers.objects.get(user=request.user)
@@ -26,11 +21,10 @@ def profile(request):
 @login_required
 def table_list(request):
     user = KhaanDaanUsers.objects.get(user=request.user)
-    food=Food.objects.all()
-
+    food=Food.objects.filter(served_to = '')
+    
     if request.method == 'POST':
-        food_req = Food.objects.get(id=request.POST.get("food_id",""))
-        food_req.delete()
+        Food.objects.filter(id=request.POST.get("food_id","")).update(served_to=user.user.username)
         return redirect('dashboard-table-list')
     if user.user_type=='N':
         return render(request, 'dashboard/tables.html', {'user':user,'food':food})
@@ -40,7 +34,8 @@ def table_list(request):
 @login_required
 def typography(request):
     user = KhaanDaanUsers.objects.get(user=request.user)
-    return render(request, 'dashboard/typography.html', {'user':user})
+    food = Food.objects.filter(served_to=user.user.username)
+    return render(request, 'dashboard/typography.html', {'user':user, 'food':food})
 
 
 @login_required
@@ -66,6 +61,7 @@ def add_food(request):
         food.name = request.POST.get("name","")
         food.food_type = request.POST.get("food_type","")
         food.quantity = request.POST.get("quantity","")
+        food.served_to = ''
         food.save()
         return redirect('dashboard-add-food')
     else:
