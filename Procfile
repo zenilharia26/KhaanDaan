@@ -1,1 +1,1 @@
-web: gunicorn KhaanDaan.wsgi --log-file - 
+web: gunicorn KhaanDaan.wsgi --log-file -
