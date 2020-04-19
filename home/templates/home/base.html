@@ -5,12 +5,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="../../static/home/img/khaan-daan.png" type="image/x-icon">
-	<link rel="stylesheet" href="../../static/home/css/bootstrap.min.css">
+	<link rel="icon" href="{% static 'home/img/khaan-daan.png' %}" type="image/x-icon">
+	<link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- MAIN STYLE -->
-	<link rel="stylesheet" href="../../static/home/css/style.css">
-	<link rel="stylesheet" href="../../static/home/css/style-responsives.css">
+	<link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'home/css/style-responsives.css' %}">
 	<!-- RESPONSIVES STYLE -->
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:600|Lato:300,400" rel="stylesheet">
@@ -135,7 +135,7 @@
 	
 
 	<!-- MAIN JS -->
-	<script src="../../static/home/js/main.js"></script>
+	<script src="{% statci 'home/js/main.js' %}"></script>
 	{% block content %}
 	{% if messages%}
 		{% for message in messages%}

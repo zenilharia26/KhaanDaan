@@ -5,12 +5,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="../../static/home/img/khaan-daan.png" type="image/x-icon">
-	<link rel="stylesheet" href="../../static/home/css/bootstrap.min.css">
+	<link rel="icon" href="{% static 'home/img/khaan-daan.png' %}" type="image/x-icon">
+	<link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- MAIN STYLE -->
-	<link rel="stylesheet" href="../../static/home/css/style.css">
-	<link rel="stylesheet" href="../../static/home/css/style-responsives.css">
+	<link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'home/css/style-responsives.css' %}">
 	<!-- RESPONSIVES STYLE -->
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:600|Lato:300,400" rel="stylesheet">
@@ -131,19 +131,19 @@
 
 {% block header %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="../../static/home/img/khaan-daan.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../static/home/css/bootstrap.min.css">
+    <link rel="icon" href="{% static 'home/img/khaan-daan.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../../static/home/css/owl.carousel.css">
-	<link rel="stylesheet" href="../../static/home/css/owl.theme.css">
-	<link rel="stylesheet" href="../../static/home/css/magnific-popup.css">
-	<link rel="stylesheet" href="../../static/home/css/flexslider.css">
-	<link rel="stylesheet" href="../../static/home/css/aos.css">
-    <link rel="stylesheet" href="../../static/home/css/form-style.css">
+	<link rel="stylesheet" href="{% static 'home/css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'home/css/owl.theme.css' %}">
+	<link rel="stylesheet" href="{% static 'home/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'home/css/flexslider.css' %}">
+	<link rel="stylesheet" href="{% static 'home/css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/form-style.css' %}">
     
-    <link rel="stylesheet" href="../../static/home/css/style.css">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
 
-    <link rel="stylesheet" href="../../static/home/css/style-responsives.css">
+    <link rel="stylesheet" href="{% static 'home/css/style-responsives.css' %}">
 
 	<link href="https://fonts.googleapis.com/css?family=Hind:600|Lato:300,400" rel="stylesheet">
 	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvsSHWi2gggVVWG6Cmgi_kMD9IDwP0fI8&libraries=places&callback=initMap"
@@ -192,7 +192,7 @@
 								<!-- profile picture -->
 								<div class="profile-pic" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0">
 							
-									<img src="../../static/home/img/khaan-daan.png" height="500" class="img-responsive" alt="ProfilePicture" />
+									<img src="{% static 'home/img/khaan-daan.png' %}" height="500" class="img-responsive" alt="ProfilePicture" />
 								
 								</div>
 
@@ -531,23 +531,23 @@
 	</html>
 
 	<!-- JS PLUGIN -->
-	<script src="../../static/home/js/jquery-2.1.0.min.js"></script>
-	<script src="../../static/home/js/jquery.js"></script>
-	<script src="../../static/home/js/bootstrap.min.js"></script>
-	<script src="../../static/home/js/jquery.stellar.min.js"></script>
-	<script src="../../static/home/js/text-rotate.js"></script>
-	<script src="../../static/home/js/numscroller.js"></script>
-	<script src="../../static/home/js/owl.carousel.min.js"></script>
-	<script src="../../static/home/js/jquery.appear.js"></script>
-	<script src="../../static/home/js/progress-bar.min.js"></script>
-	<script src="../../static/home/js/jquery.mixitup.js"></script>
+	<script src="{% static 'home/js/jquery-2.1.0.min.js' %}"></script>
+	<script src="{% static 'home/js/jquery.js' %}"></script>
+	<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
+	<script src="{% static 'home/js/text-rotate.js' %}"></script>
+	<script src="{% static 'home/js/numscroller.js' %}"></script>
+	<script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'home/js/jquery.appear.js' %}"></script>
+	<script src="{% static 'home/js/progress-bar.min.js' %}"></script>
+	<script src="{% static 'home/js/jquery.mixitup.js' %}"></script>
 	
-	<script src="../../static/home/js/jquery.flexslider-min.js"></script>
-	<script src="../../static/home/js/aos.js"></script>
-	<script src="../../static/home/js/app.js"></script>
-	<script src="../../static/home/js/jquery.form.js"></script>
-	<script src="../../static/home/js/jquery.validate.min.js"></script>
-	<script src="../../static/home/js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="{% static 'home/js/jquery.flexslider-min.js' %}"></script>
+	<script src="{% static 'home/js/aos.js' %}"></script>
+	<script src="{% static 'home/js/app.js' %}"></script>
+	<script src="{% static 'home/js/jquery.form.js' %}"></script>
+	<script src="{% static 'home/js/jquery.validate.min.js' %}"></script>
+	<script src="{% static 'home/js/jquery.mb.YTPlayer.min.js' %}"></script>
 	<script type="text/javascript">
 		$('.player').mb_YTPlayer();
 	</script>
@@ -556,5 +556,5 @@
 	async defer></script>-->
 
 	<!-- MAIN JS -->
-	<script src="../../static/home/js/main.js"></script>
+	<script src="{% static 'home/js/main.js' %}"></script>
 {% endblock content %}
