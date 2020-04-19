@@ -1,9 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="../../static/home/img/khaan-daan.png" type="image/x-icon">
+  <link rel="icon" href="{% static 'home/img/khaan-daan.png' %}" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
       {{user.name}}-Add Food
@@ -13,14 +15,14 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-  <link href="../../static/dashboard//css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <link href="{% static 'dashboard/css/material-dashboard.css?v=2.1.0' %}" rel="stylesheet" />
   
-  <link href="../../static/dashboard//demo/demo.css" rel="stylesheet" />
+  <link href="{% static 'dashboard/demo/demo.css' %}" rel="stylesheet" />
 </head>
 
 <body class="dark-edition">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../../static/dashboard//img/sidebar-2.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="{% static 'dashboard/img/sidebar-2.jpg' %}">
       
     <div class="logo"><a href="{% url 'home' %}" class="simple-text logo-normal">
         Khaan-दान
@@ -222,23 +224,23 @@
   </div>
 
   <!--   Core JS Files   -->
-  <script src="../../static/dashboard//js/core/jquery.min.js"></script>
-  <script src="../../static/dashboard//js/core/popper.min.js"></script>
-  <script src="../../static/dashboard//js/core/bootstrap-material-design.min.js"></script>
+  <script src="{% static 'dashboard/js/core/jquery.min.js' %}"></script>
+  <script src="{% static 'dashboard/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'dashboard/js/core/bootstrap-material-design.min.js' %}"></script>
   <script src="https://unpkg.com/default-passive-events"></script>
-  <script src="../../static/dashboard//js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="{% static 'dashboard/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
   
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chartist JS -->
-  <script src="../../static/dashboard//js/plugins/chartist.min.js"></script>
+  <script src="{% static 'dashboard/js/plugins/chartist.min.js' %}"></script>
   <!--  Notifications Plugin    -->
-  <script src="../../static/dashboard//js/plugins/bootstrap-notify.js"></script>
+  <script src="{% static 'dashboard/js/plugins/bootstrap-notify.js' %}"></script>
   
-  <script src="../../static/dashboard//js/material-dashboard.js?v=2.1.0"></script>
+  <script src="{% static 'dashboard/js/material-dashboard.js?v=2.1.0' %}"></script>
   
-  <script src="../../static/dashboard//demo/demo.js"></script>
+  <script src="{% static 'dashboard/demo/demo.js' %}"></script>
   
 </body>
 
